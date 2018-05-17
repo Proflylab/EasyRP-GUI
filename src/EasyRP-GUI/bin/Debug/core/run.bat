@@ -1,3 +1,2 @@
-cd EasyRP
+cd core
 EasyRP.exe
-pause
