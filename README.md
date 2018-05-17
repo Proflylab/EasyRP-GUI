@@ -1,5 +1,5 @@
 # EasyRP-GUI (Custom Discord Rich Presence with GUI)
-<img src="https://i.imgur.com/XhHkcKW.png" align="right">
+<img src="https://i.imgur.com/AH7sRwE.png" align="right">
 EasyRP-GUI is an easy program with graphical user interface to use the DiscordRPC library without any knowledge of programming.  
 Instead just use this easy program. EasyRP-GUI is based on console program [EasyRP](https://github.com/Pizzabelly/EasyRP/).
 
