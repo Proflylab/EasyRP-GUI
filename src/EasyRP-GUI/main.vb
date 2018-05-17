@@ -85,7 +85,7 @@ Public Class main
             Dim ConfigOutput = String.Format(ConfigTemplate, TxtClientId.Text, TxtState.Text, TxtDetails.Text, TxtLargeAssetName.Text, TxtSmallAssetName.Text, TxtLargeAssetTooltip.Text, TxtSmallAssetTooltip.Text)
             My.Computer.FileSystem.WriteAllText(EasyRPPath & "config.ini", ConfigOutput, False)
             AddLog("Config updated")
-            MsgBox("Configuration updated succesfully!", MsgBoxStyle.Information)
+            MsgBox("Configuration updated succesfully!" & vbNewLine & "Update can take up to 30 seconds" & vbNewLine & vbNewLine & "Press Restart if you can't see RPC", MsgBoxStyle.Information)
         Catch ex As Exception
             AddLog("Config update error: " & vbNewLine & ex.ToString() & vbNewLine)
             MsgBox("Error while updating configuration! See log", MsgBoxStyle.Critical)
