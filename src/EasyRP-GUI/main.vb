@@ -12,6 +12,25 @@ Public Class main
 
     Dim p() As Process
 
+    Sub checkDependencies()
+        Dim dependencies = {Application.StartupPath & "\MaterialSkin.dll", EasyRPPath & "discord-rpc.dll", EasyRPPath & "EasyRP.exe", EasyRPPath & "run.bat"}
+        Dim dependenciesNotFound As New ArrayList
+        For Each dependency In dependencies
+            If (My.Computer.FileSystem.FileExists(dependency)) Then
+                AddLog("Dependency " + dependency + " found")
+            Else
+                AddLog("Dependency " + dependency + " not found")
+                dependenciesNotFound.Add(dependency)
+
+            End If
+        Next
+
+        If (dependenciesNotFound.Count > 0) Then
+            MsgBox("Following dependencies were not found: " & vbNewLine & String.Join(vbNewLine, dependenciesNotFound.ToArray()) & vbNewLine & "Please re-download program from Github", MsgBoxStyle.Critical, "Dependencies not found")
+            End
+        End If
+    End Sub
+
     Sub loadConfig()
         Try
             Dim config = My.Computer.FileSystem.ReadAllText(EasyRPPath & "config.ini").Split(vbNewLine)
@@ -73,6 +92,7 @@ Public Class main
         SkinManager.ColorScheme = New ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE)
         AddLog("Application started")
         AddLog("EasyRP path: " & EasyRPPath)
+        checkDependencies()
         CheckIfRunning()
         loadConfig()
     End Sub
